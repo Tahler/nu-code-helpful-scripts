@@ -6,7 +6,7 @@
 docker network create --subnet 172.18.0.0/16 nu-code
 
 # Start the Compilation API
-docker run -d --name compilation-api --net nu-code --ip 172.18.0.2 compilation-api
+docker run -d --name compilation-api -v /var/run/docker.sock:/var/run/docker.sock --net nu-code --ip 172.18.0.2 compilation-api
 
 # Start the Submission API
 docker run -d --name submission-api --net nu-code --ip 172.18.0.3 submission-api
